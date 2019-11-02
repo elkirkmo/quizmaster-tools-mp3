@@ -15,25 +15,13 @@ const fix = () => {
 };
 
 const addSilence = () => {
-  const silence = fs.createReadStream('silence.mp3');
+  const silence = fs.createReadStream('./silence.mp3');
   silence.pipe(
     dhh,
     { end: false }
   );
   silence.on('end', () => {
     console.log('added silence');
-  });
-  return;
-};
-
-addCount = count => {
-  const countStream = fs.createReadStream(`./Numbers/${count}.mp3`);
-  countStream.pipe(
-    dhh,
-    { end: false }
-  );
-  countStream.on('end', () => {
-    console.log('added number');
   });
   return;
 };
@@ -46,7 +34,6 @@ const main = () => {
     return;
   }
   const currentFile = files.shift();
-  addCount(parseInt(currentFile.substring(0, 2)));
   const stream = fs.createReadStream(`./Files/${currentFile}`);
   stream.pipe(
     dhh,
