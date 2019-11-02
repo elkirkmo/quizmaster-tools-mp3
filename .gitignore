@@ -1,0 +1,4 @@
+node_modules
+.DS_Store
+Files/*.mp3
+newAudioFile.mp3
